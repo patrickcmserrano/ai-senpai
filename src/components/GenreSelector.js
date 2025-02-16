@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Radio, FormControlLabel, FormGroup, Typography, Box } from '@mui/material';
+import { Button, Chip, Typography, Box } from '@mui/material';
 
 const genres = [
   'Ação', 'Aventura', 'Comédia', 'Drama', 'Fantasia', 'Terror', 'Mistério', 'Romance', 'Ficção Científica'
@@ -20,8 +20,8 @@ const genreMap = {
 function GenreSelector({ onSelectGenres }) {
   const [selectedGenre, setSelectedGenre] = useState('');
 
-  const handleGenreChange = (event) => {
-    setSelectedGenre(event.target.value);
+  const handleGenreClick = (genre) => {
+    setSelectedGenre(genre);
   };
 
   const handleSubmit = () => {
@@ -33,22 +33,17 @@ function GenreSelector({ onSelectGenres }) {
     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
       <Box sx={{ p: 2, maxWidth: 600, mx: 'auto' }}>
         <Typography variant="h5" gutterBottom>Selecione seu gênero preferido</Typography>
-        <FormGroup>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
           {genres.map((genre) => (
-            <FormControlLabel
+            <Chip
               key={genre}
-              control={
-                <Radio
-                  checked={selectedGenre === genre}
-                  onChange={handleGenreChange}
-                  value={genre}
-                  name="genre"
-                />
-              }
               label={genre}
+              clickable
+              color={selectedGenre === genre ? 'primary' : 'default'}
+              onClick={() => handleGenreClick(genre)}
             />
           ))}
-        </FormGroup>
+        </Box>
         <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ mt: 2 }}>
           Confirmar
         </Button>
