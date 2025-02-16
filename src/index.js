@@ -15,6 +15,28 @@ const darkTheme = createTheme({
       paper: '#1d1d1d',
     },
   },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          '@media (max-width: 600px)': {
+            flexDirection: 'column',
+            overflow: 'auto',
+          },
+        },
+      },
+    },
+    MuiBox: {
+      styleOverrides: {
+        root: {
+          '@media (max-width: 600px)': {
+            flexDirection: 'column',
+            overflow: 'auto',
+          },
+        },
+      },
+    },
+  },
 });
 
 const container = document.getElementById('root');

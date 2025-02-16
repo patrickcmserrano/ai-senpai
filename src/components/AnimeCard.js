@@ -4,8 +4,8 @@ import { Card, CardContent, CardMedia, Chip, Typography, Box } from '@mui/materi
 
 function AnimeCard({ title, imageUrl, description, genres }) {
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
-      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 2, maxWidth: '50%' }}>
+    <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, height: '100%', overflow: { xs: 'auto', sm: 'hidden' } }}>
+      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 2, maxWidth: { xs: '100%', sm: '50%' } }}>
         <Typography gutterBottom variant="h4" component="div">
           {title}
         </Typography>
@@ -23,7 +23,7 @@ function AnimeCard({ title, imageUrl, description, genres }) {
         alt={title}
         image={imageUrl}
         title={title}
-        sx={{ flex: '0 0 50%', objectFit: 'cover', maxHeight: '100%', width: '100%' }}
+        sx={{ flex: { xs: '0 0 100%', sm: '0 0 50%' }, objectFit: 'cover', maxHeight: '100%', width: '100%' }}
       />
     </Card>
   );
