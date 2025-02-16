@@ -17,16 +17,20 @@ const genreMap = {
   'Ficção Científica': 'Sci-Fi'
 };
 
-function GenreSelector({ onSelectGenres }) {
-  const [selectedGenre, setSelectedGenre] = useState('');
+const GenreSelector = ({ onSelectGenres }) => {
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
-  const handleGenreClick = (genre) => {
-    setSelectedGenre(genre);
+  const handleGenreChange = (genre) => {
+    setSelectedGenres((prevSelectedGenres) =>
+      prevSelectedGenres.includes(genre)
+        ? prevSelectedGenres.filter((g) => g !== genre)
+        : [...prevSelectedGenres, genre]
+    );
   };
 
-  const handleSubmit = () => {
-    const adaptedGenre = genreMap[selectedGenre];
-    onSelectGenres([adaptedGenre]);
+  const handleConfirm = () => {
+    const adaptedGenres = selectedGenres.map((genre) => genreMap[genre]);
+    onSelectGenres(adaptedGenres);
   };
 
   return (
@@ -39,17 +43,17 @@ function GenreSelector({ onSelectGenres }) {
               key={genre}
               label={genre}
               clickable
-              color={selectedGenre === genre ? 'primary' : 'default'}
-              onClick={() => handleGenreClick(genre)}
+              color={selectedGenres.includes(genre) ? 'primary' : 'default'}
+              onClick={() => handleGenreChange(genre)}
             />
           ))}
         </Box>
-        <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ mt: 2 }}>
+        <Button variant="contained" color="primary" onClick={handleConfirm} sx={{ mt: 2 }}>
           Confirmar
         </Button>
       </Box>
     </Box>
   );
-}
+};
 
 export default GenreSelector;

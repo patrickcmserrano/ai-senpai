@@ -8,18 +8,18 @@ describe('GenreSelector', () => {
   const onSelectGenres = jest.fn();
 
   it('deve renderizar os gêneros disponíveis', () => {
-    const { getByLabelText } = render(<GenreSelector onSelectGenres={onSelectGenres} />);
+    const { getByText } = render(<GenreSelector onSelectGenres={onSelectGenres} />);
     genres.forEach((genre) => {
-      expect(getByLabelText(genre)).toBeInTheDocument();
+      expect(getByText(genre)).toBeInTheDocument();
     });
   });
 
   it('deve chamar onSelectGenres com os gêneros selecionados ao clicar em Confirmar', () => {
-    const { getByLabelText, getByText } = render(<GenreSelector onSelectGenres={onSelectGenres} />);
-    fireEvent.click(getByLabelText('Ação'));
-    fireEvent.click(getByLabelText('Comédia'));
+    const { getByText } = render(<GenreSelector onSelectGenres={onSelectGenres} />);
+    fireEvent.click(getByText('Ação'));
+    fireEvent.click(getByText('Comédia'));
     fireEvent.click(getByText('Confirmar'));
 
-    expect(onSelectGenres).toHaveBeenCalledWith(['Ação', 'Comédia']);
+    expect(onSelectGenres).toHaveBeenCalledWith(['Action', 'Comedy']);
   });
 });

@@ -14,7 +14,7 @@ describe('fetchAnimeByGenres', () => {
             description: 'Um jovem ninja que busca reconhecimento e sonha em se tornar o Hokage, o líder de sua vila.',
             episodes: 220,
             status: 'FINISHED',
-            coverImage: { large: 'https://example.com/naruto.jpg' },
+            coverImage: { extraLarge: 'https://example.com/naruto.jpg' },
             genres: ['Ação', 'Aventura'],
           },
         ],
@@ -43,7 +43,7 @@ describe('fetchAnimeByGenres', () => {
               episodes
               status
               coverImage {
-                large
+                extraLarge
               }
               genres
             }
