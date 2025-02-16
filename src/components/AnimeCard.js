@@ -3,14 +3,20 @@ import PropTypes from 'prop-types';
 import { Card, CardContent, CardMedia, Chip, Typography, Box } from '@mui/material';
 
 function AnimeCard({ title, imageUrl, description, genres }) {
+  // Função para remover elementos HTML da string
+  const stripHtml = (html) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || "";
+  };
+
   return (
     <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, height: '100%', overflow: { xs: 'auto', sm: 'hidden' } }}>
       <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 2, maxWidth: { xs: '100%', sm: '50%' } }}>
         <Typography gutterBottom variant="h4" component="div">
           {title}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
-          {description}
+        <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.3em' }}>
+          {stripHtml(description)}
         </Typography>
         <Box sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}>
           {genres.map((genre) => (
