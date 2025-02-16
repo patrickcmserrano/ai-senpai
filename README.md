@@ -68,12 +68,12 @@ ai-senpai/
 
 2. Instale as dependências:
    ```sh
-   npm install
+   yarn install
    ```
 
 3. Inicie o servidor de desenvolvimento:
    ```sh
-   npm start
+   yarn start
    ```
 
 4. Acesse a aplicação em `http://localhost:3000`.
@@ -131,6 +131,8 @@ A aplicação AI Senpai é uma aplicação web de página única (SPA) desenvolv
 - Jest: Utilizado para testes unitários e de integração.
 - Testing Library: Utilizado para testes de componentes React.
 - Babel: Utilizado para transpilar o código JavaScript moderno.
+- ESLint: Utilizado para análise estática do código.
+- ESLint Loader: Utilizado para integrar ESLint ao Webpack.
 
 ## Contribuição
 
