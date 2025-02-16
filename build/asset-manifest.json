@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/ai-senpai/static/js/main.9f76b42c.js",
+    "index.html": "/ai-senpai/index.html",
+    "main.9f76b42c.js.map": "/ai-senpai/static/js/main.9f76b42c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9f76b42c.js"
+  ]
+}
