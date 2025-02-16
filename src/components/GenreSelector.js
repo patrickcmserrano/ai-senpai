@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Radio, FormControlLabel, FormGroup, Typography, Box } from '@mui/material';
 
 const genres = [
   'Ação', 'Aventura', 'Comédia', 'Drama', 'Fantasia', 'Terror', 'Mistério', 'Romance', 'Ficção Científica'
@@ -17,38 +18,40 @@ const genreMap = {
 };
 
 function GenreSelector({ onSelectGenres }) {
-  const [selectedGenres, setSelectedGenres] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState('');
 
-  const handleGenreChange = (genre) => {
-    setSelectedGenres((prevSelectedGenres) =>
-      prevSelectedGenres.includes(genre)
-        ? prevSelectedGenres.filter((g) => g !== genre)
-        : [...prevSelectedGenres, genre]
-    );
+  const handleGenreChange = (event) => {
+    setSelectedGenre(event.target.value);
   };
 
   const handleSubmit = () => {
-    const adaptedGenres = selectedGenres.map(genre => genreMap[genre]);
-    onSelectGenres(adaptedGenres);
+    const adaptedGenre = genreMap[selectedGenre];
+    onSelectGenres([adaptedGenre]);
   };
 
   return (
-    <div>
-      <h2>Selecione seus gêneros preferidos</h2>
-      <div>
+    <Box sx={{ p: 2, maxWidth: 600, mx: 'auto' }}>
+      <Typography variant="h5" gutterBottom>Selecione seu gênero preferido</Typography>
+      <FormGroup>
         {genres.map((genre) => (
-          <label key={genre}>
-            <input
-              type="checkbox"
-              value={genre}
-              onChange={() => handleGenreChange(genre)}
-            />
-            {genre}
-          </label>
+          <FormControlLabel
+            key={genre}
+            control={
+              <Radio
+                checked={selectedGenre === genre}
+                onChange={handleGenreChange}
+                value={genre}
+                name="genre"
+              />
+            }
+            label={genre}
+          />
         ))}
-      </div>
-      <button onClick={handleSubmit}>Confirmar</button>
-    </div>
+      </FormGroup>
+      <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ mt: 2 }}>
+        Confirmar
+      </Button>
+    </Box>
   );
 }
 

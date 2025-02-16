@@ -1,20 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Card, CardContent, CardMedia, Chip, Typography, Box } from '@mui/material';
 
 function AnimeCard({ title, imageUrl, description, genres }) {
   return (
-    <div className="anime-card">
-      <img src={imageUrl} alt={title} />
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <div className="genres">
-        {genres.map((genre) => (
-          <span key={genre} className="genre">
-            {genre}
-          </span>
-        ))}
-      </div>
-    </div>
+    <Card sx={{ maxWidth: 345, mx: 'auto', mt: 2 }}>
+      <CardMedia
+        component="img"
+        alt={title}
+        height="140"
+        image={imageUrl}
+        title={title}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {description}
+        </Typography>
+        <Box sx={{ mt: 1 }}>
+          {genres.map((genre) => (
+            <Chip key={genre} label={genre} sx={{ margin: '2px' }} />
+          ))}
+        </Box>
+      </CardContent>
+    </Card>
   );
 }
 

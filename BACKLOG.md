@@ -3,13 +3,6 @@
 ## To Do
 
 - [ ] Integrar Material-UI ao projeto
-- [ ] Refatorar componente GenreSelector para usar Material-UI
-  - [ ] Adicionar checkboxes estilizados com Material-UI
-  - [ ] Adicionar botão de confirmação estilizado com Material-UI
-- [ ] Refatorar componente AnimeCard para usar Material-UI
-  - [ ] Adicionar card estilizado com Material-UI
-  - [ ] Adicionar imagem, título e descrição estilizados com Material-UI
-  - [ ] Adicionar chips para exibir os gêneros com Material-UI
 - [ ] Criar layout responsivo utilizando Material-UI
   - [ ] Adicionar AppBar com Material-UI
   - [ ] Adicionar Drawer para navegação com Material-UI
@@ -24,11 +17,18 @@
 
 ## In Progress
 
-- [ ] 
+- [ ] Refatorar componente GenreSelector para usar Material-UI
+  - [x] Adicionar checkboxes estilizados com Material-UI
+  - [x] Adicionar botão de confirmação estilizado com Material-UI
+- [ ] Refatorar componente AnimeCard para usar Material-UI
+  - [x] Adicionar card estilizado com Material-UI
+  - [x] Adicionar imagem, título e descrição estilizados com Material-UI
+  - [x] Adicionar chips para exibir os gêneros com Material-UI
 
 ## Review
 
-- [ ] 
+- [ ] Refatorar componente GenreSelector para usar Material-UI
+- [ ] Refatorar componente AnimeCard para usar Material-UI
 
 ## Done
 
