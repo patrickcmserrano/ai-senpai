@@ -2,10 +2,6 @@
 
 ## To Do
 
-- [ ] Configurar ambiente de desenvolvimento
-- [ ] Criar estrutura inicial do projeto
-- [ ] Implementar componente GenreSelector
-- [ ] Implementar componente AnimeCard
 - [ ] Configurar React Router
 - [ ] Configurar Axios para requisições HTTP
 - [ ] Implementar serviço de integração com MyAnimeList API
@@ -17,7 +13,11 @@
 
 ## In Progress
 
-- [ ] 
+- [ ] Configurar ambiente de desenvolvimento
+- [ ] Criar estrutura inicial do projeto
+- [ ] Implementar componente GenreSelector
+- [ ] Revisar código por inconsistências
+- [ ] Implementar componente AnimeCard
 
 ## Review
 
@@ -25,4 +25,4 @@
 
 ## Done
 
-- [ ] 
+- [ ]

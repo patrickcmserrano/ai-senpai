@@ -36,14 +36,16 @@ AI Senpai é uma aplicação web de página única (SPA) desenvolvida com React.
 ## Estrutura do Projeto
 
 ```
-anime-recommender/
+ai-senpai/
 ├── public/
 │   ├── index.html
 │   └── ...
 ├── src/
 │   ├── components/
 │   │   ├── AnimeCard.js
+│   │   ├── AnimeCard.md
 │   │   ├── GenreSelector.js
+│   │   ├── GenreSelector.md
 │   │   └── ...
 │   ├── services/
 │   │   ├── api.js
@@ -61,8 +63,8 @@ anime-recommender/
 
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/seu-usuario/anime-recommender.git
-   cd anime-recommender
+   git clone https://github.com/seu-usuario/ai-senpai.git
+   cd ai-senpai
    ```
 
 2. Instale as dependências:
@@ -76,6 +78,11 @@ anime-recommender/
    ```
 
 4. Acesse a aplicação em `http://localhost:3000`.
+
+## Documentação dos Componentes
+
+- [GenreSelector](./src/components/GenreSelector.md)
+- [AnimeCard](./src/components/AnimeCard.md)
 
 ## Contribuição
 
