@@ -4,27 +4,27 @@ import { Card, CardContent, CardMedia, Chip, Typography, Box } from '@mui/materi
 
 function AnimeCard({ title, imageUrl, description, genres }) {
   return (
-    <Card sx={{ maxWidth: 345, mx: 'auto', mt: 2 }}>
-      <CardMedia
-        component="img"
-        alt={title}
-        height="140"
-        image={imageUrl}
-        title={title}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+    <Card sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
+      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 2, maxWidth: '50%' }}>
+        <Typography gutterBottom variant="h4" component="div">
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body1" color="text.secondary">
           {description}
         </Typography>
-        <Box sx={{ mt: 1 }}>
+        <Box sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}>
           {genres.map((genre) => (
             <Chip key={genre} label={genre} sx={{ margin: '2px' }} />
           ))}
         </Box>
-      </CardContent>
+      </Box>
+      <CardMedia
+        component="img"
+        alt={title}
+        image={imageUrl}
+        title={title}
+        sx={{ flex: '0 0 50%', objectFit: 'cover', maxHeight: '100%', width: '100%' }}
+      />
     </Card>
   );
 }

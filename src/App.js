@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Container, Typography, CircularProgress, Box } from '@mui/material';
+import { Container, CircularProgress, Box } from '@mui/material';
 import GenreSelector from './components/GenreSelector';
 import AnimeCard from './components/AnimeCard';
 import { fetchAnimeByGenres } from './services/anilistService';
@@ -28,30 +28,28 @@ function App() {
 
   return (
     <Router>
-      <Container>
-        <Typography variant="h3" component="h1" gutterBottom>
-          Bem-vindo ao AI Senpai
-        </Typography>
-        <Switch>
-          <Route path="/" exact>
+      <Container maxWidth={false} disableGutters sx={{ height: '100vh', display: 'flex', flexDirection: 'column', bgcolor: 'background.default', color: 'text.primary' }}>
+        <Box sx={{ display: 'flex', flex: 1, width: '100%', height: '100%' }}>
+          <Box sx={{ flex: '0 0 25%', display: 'flex', flexDirection: 'column' }}>
             <GenreSelector onSelectGenres={handleSelectGenres} />
+          </Box>
+          <Box sx={{ flex: '0 0 75%', display: 'flex', flexDirection: 'column' }}>
             {loading ? (
-              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
                 <CircularProgress />
               </Box>
             ) : (
               recommendedAnime && (
                 <AnimeCard
                   title={recommendedAnime.title.romaji}
-                  imageUrl={recommendedAnime.coverImage.large}
+                  imageUrl={recommendedAnime.coverImage.extraLarge}
                   description={recommendedAnime.description}
                   genres={recommendedAnime.genres}
                 />
               )
             )}
-          </Route>
-          {/* Adicione outras rotas aqui conforme necessário */}
-        </Switch>
+          </Box>
+        </Box>
       </Container>
     </Router>
   );

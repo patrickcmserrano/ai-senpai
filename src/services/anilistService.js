@@ -16,7 +16,7 @@ const query = gql`
         episodes
         status
         coverImage {
-          large
+          extraLarge
         }
         genres
       }
