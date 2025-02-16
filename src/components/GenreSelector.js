@@ -4,6 +4,18 @@ const genres = [
   'Ação', 'Aventura', 'Comédia', 'Drama', 'Fantasia', 'Terror', 'Mistério', 'Romance', 'Ficção Científica'
 ];
 
+const genreMap = {
+  'Ação': 'Action',
+  'Aventura': 'Adventure',
+  'Comédia': 'Comedy',
+  'Drama': 'Drama',
+  'Fantasia': 'Fantasy',
+  'Terror': 'Horror',
+  'Mistério': 'Mystery',
+  'Romance': 'Romance',
+  'Ficção Científica': 'Sci-Fi'
+};
+
 function GenreSelector({ onSelectGenres }) {
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -16,7 +28,8 @@ function GenreSelector({ onSelectGenres }) {
   };
 
   const handleSubmit = () => {
-    onSelectGenres(selectedGenres);
+    const adaptedGenres = selectedGenres.map(genre => genreMap[genre]);
+    onSelectGenres(adaptedGenres);
   };
 
   return (

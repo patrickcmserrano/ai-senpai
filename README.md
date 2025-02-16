@@ -2,7 +2,7 @@
 
 ## Descrição
 
-AI Senpai é uma aplicação web de página única (SPA) desenvolvida com React. O objetivo da aplicação é fornecer recomendações de animes com base nos gêneros preferidos pelo usuário. A aplicação irá consumir dados de APIs como MyAnimeList, IMDb ou AniList para obter informações sobre os animes, incluindo nomes, gêneros e notas.
+AI Senpai é uma aplicação web de página única (SPA) desenvolvida com React. O objetivo da aplicação é fornecer recomendações de animes com base nos gêneros preferidos pelo usuário. A aplicação consome dados da API AniList para obter informações sobre os animes, incluindo nomes, gêneros e descrições.
 
 ## Funcionalidades
 
@@ -23,8 +23,6 @@ AI Senpai é uma aplicação web de página única (SPA) desenvolvida com React.
   - Inicialmente, a aplicação não terá um backend dedicado. Os dados serão armazenados in-memory ou utilizando cookies.
 
 - **APIs:**
-  - MyAnimeList API
-  - IMDb API
   - AniList API
 
 ## Metodologias
@@ -49,6 +47,7 @@ ai-senpai/
 │   │   └── ...
 │   ├── services/
 │   │   ├── api.js
+│   │   ├── anilistService.js
 │   │   └── ...
 │   ├── App.js
 │   ├── index.js
@@ -83,6 +82,64 @@ ai-senpai/
 
 - [GenreSelector](./src/components/GenreSelector.md)
 - [AnimeCard](./src/components/AnimeCard.md)
+
+## Estado Atual da Aplicação
+
+### Descrição Geral
+A aplicação AI Senpai é uma aplicação web de página única (SPA) desenvolvida com React. O objetivo da aplicação é fornecer recomendações de animes com base nos gêneros preferidos pelo usuário. A aplicação consome dados da API AniList para obter informações sobre os animes, incluindo nomes, gêneros e descrições.
+
+### Funcionalidades Implementadas
+
+1. **Seleção de Gêneros:**
+   - O componente `GenreSelector` permite aos usuários selecionar seus gêneros de animes preferidos. Os gêneros disponíveis incluem Ação, Aventura, Comédia, Drama, Fantasia, Terror, Mistério, Romance e Ficção Científica.
+
+2. **Recomendação de Animes:**
+   - Com base nos gêneros selecionados pelo usuário, a aplicação faz uma requisição à API AniList para buscar animes que correspondam aos gêneros selecionados. O primeiro anime da lista de resultados é exibido ao usuário.
+
+3. **Exibição de Informações do Anime:**
+   - O componente `AnimeCard` exibe informações detalhadas sobre o anime recomendado, incluindo o título, imagem, descrição e gêneros.
+
+### Componentes Principais
+
+1. **GenreSelector:**
+   - Permite aos usuários selecionar múltiplos gêneros de animes.
+   - Chama a função `onSelectGenres` com os gêneros selecionados quando o usuário clica no botão "Confirmar".
+
+2. **AnimeCard:**
+   - Exibe informações detalhadas sobre um anime, incluindo título, imagem, descrição e gêneros.
+
+### Serviços
+
+1. **AniList Service:**
+   - O serviço `anilistService` faz requisições à API AniList para buscar animes com base nos gêneros fornecidos.
+   - Utiliza GraphQL para fazer as requisições.
+
+### Testes
+
+1. **Testes Unitários:**
+   - Foram criados testes unitários para os componentes `GenreSelector` e `AnimeCard` utilizando `@testing-library/react` e `@testing-library/jest-dom`.
+
+2. **Testes de Integração:**
+   - Foram criados testes de integração para o serviço `anilistService` para garantir que as requisições à API AniList estão funcionando corretamente.
+
+### Dependências
+
+- React: Biblioteca principal para construção da interface do usuário.
+- React Router: Utilizado para navegação entre páginas.
+- Axios: Utilizado para fazer requisições HTTP.
+- GraphQL-Request: Utilizado para fazer requisições GraphQL à API AniList.
+- Jest: Utilizado para testes unitários e de integração.
+- Testing Library: Utilizado para testes de componentes React.
+- Babel: Utilizado para transpilar o código JavaScript moderno.
+
+### Próximas Tarefas
+
+- Documentar componentes e serviços.
+- Revisar código por inconsistências.
+- Implementar serviço de integração com MyAnimeList API.
+- Criar testes de integração para serviços adicionais.
+
+A aplicação está em um estado funcional, com a capacidade de selecionar gêneros de animes e exibir recomendações baseadas nesses gêneros. Os testes unitários e de integração garantem que as funcionalidades principais estão funcionando corretamente.
 
 ## Contribuição
 
