@@ -132,15 +132,6 @@ A aplicação AI Senpai é uma aplicação web de página única (SPA) desenvolv
 - Testing Library: Utilizado para testes de componentes React.
 - Babel: Utilizado para transpilar o código JavaScript moderno.
 
-### Próximas Tarefas
-
-- Documentar componentes e serviços.
-- Revisar código por inconsistências.
-- Implementar serviço de integração com MyAnimeList API.
-- Criar testes de integração para serviços adicionais.
-
-A aplicação está em um estado funcional, com a capacidade de selecionar gêneros de animes e exibir recomendações baseadas nesses gêneros. Os testes unitários e de integração garantem que as funcionalidades principais estão funcionando corretamente.
-
 ## Contribuição
 
 1. Faça um fork do projeto.
